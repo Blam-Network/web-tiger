@@ -1,4 +1,4 @@
-import { rsat } from "../../../lib/rsat";
+import { rsat } from "@blamnetwork/rsat";
 import {
   AppearanceEc,
   AppearanceF0,

@@ -1,4 +1,4 @@
-import { rsat } from "../../../lib/rsat";
+import { rsat } from "@blamnetwork/rsat";
 import { Unknown80801768 } from "../shared";
 
 /** Type-0 reuses server_object (808018D0). */

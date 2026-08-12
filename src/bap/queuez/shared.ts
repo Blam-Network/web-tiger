@@ -1,4 +1,4 @@
-import { rsat } from "../../lib/rsat";
+import { rsat } from "@blamnetwork/rsat";
 
 export const AppearanceEc = rsat.schema(0x808018ec, {
   race: rsat.optional(rsat.i8({ bias: 128 })),

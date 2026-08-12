@@ -1,4 +1,4 @@
-import { decodeServerMessage, encodeServerMessage } from "../../../lib/rsat";
+import { decodeServerMessage, encodeServerMessage } from "@blamnetwork/rsat";
 import {
   CONTENT_CHECKSUM,
   e_server_message_network_id,

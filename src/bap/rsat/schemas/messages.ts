@@ -1,4 +1,4 @@
-import { rsat } from "../../../lib/rsat";
+import { rsat } from "@blamnetwork/rsat";
 
 /** 80801A2B — status nest used by several responses. */
 export const Unknown80801A2B = rsat.schema(0x80801a2b, {

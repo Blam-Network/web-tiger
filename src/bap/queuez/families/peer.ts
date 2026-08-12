@@ -1,4 +1,4 @@
-import { rsat } from "../../../lib/rsat";
+import { rsat } from "@blamnetwork/rsat";
 import { AppearanceEc, AppearanceF0, Unknown808019CF } from "../shared";
 
 /** 808017CA — peer type-0. */

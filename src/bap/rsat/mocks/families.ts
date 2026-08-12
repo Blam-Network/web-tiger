@@ -2,7 +2,7 @@ import {
   encode,
   encodeQueuezFamily,
   type QueuezObject,
-} from "../../../lib/rsat";
+} from "@blamnetwork/rsat";
 import {
   e_queuez_family_type,
   InspectionCharacter,

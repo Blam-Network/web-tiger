@@ -1,4 +1,4 @@
-import { rsat } from "../../../lib/rsat";
+import { rsat } from "@blamnetwork/rsat";
 
 /** 808017CC — roster type-0. */
 export const RosterPrimary = rsat.schema(0x808017cc, {

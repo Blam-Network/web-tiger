@@ -12,6 +12,10 @@ export default defineConfig({
         root,
         "node_modules/@blamnetwork/blf/dist-cjs/index.js"
       ),
+      "@blamnetwork/rsat": path.join(
+        root,
+        "node_modules/@blamnetwork/rsat/dist-cjs/index.js"
+      ),
       // Published cstruct ESM omits .js extensions; use CJS for vitest.
       "@craftycodie/cstruct": path.join(
         root,
