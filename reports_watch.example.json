@@ -1,0 +1,6 @@
+{
+  "reportsDir": "C:/Users/codie/Projects/xenia-canary/build/bin/Windows/Debug/cache0/temp/reports",
+  "logFile": "debug_full.txt",
+  "levels": ["error", "critical"],
+  "categories": ["*"]
+}

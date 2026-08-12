@@ -2,32 +2,32 @@
  * @see Guest request builder sub_828B94E0 (nanopb table unk_82037250)
  * @see Guest response parser sub_828B7FC0 ("Processing signon success ticket from server")
  */
-import { Inject, Injectable } from '@nestjs/common';
-import { create, fromBinary, isFieldSet, toBinary } from '@bufbuild/protobuf';
-import ILogger, { ILoggerSymbol } from '../../ILogger';
+
+import { create, fromBinary, toBinary } from "@bufbuild/protobuf";
+import { Inject, Injectable } from "@nestjs/common";
+import {
+  type SignonRequest,
+  SignonRequestSchema,
+  SignonResponseSchema,
+} from "../../generated/signon_pb";
+import type ILogger from "../../ILogger";
+import { ILoggerSymbol } from "../../ILogger";
 import {
   BAP_SECURITY_TOKEN,
   BAP_SESSION_KEY_AES,
   BAP_SESSION_KEY_HMAC,
   BAP_SIGNON_IP,
   BAP_SIGNON_PORT,
-} from '../config';
-import {
-  SignonRequest,
-  SignonRequestSchema,
-  SignonResponseSchema,
-} from '../../generated/signon_pb';
+} from "../config";
 
 @Injectable()
 export class SignonService {
   constructor(@Inject(ILoggerSymbol) private readonly logger: ILogger) {}
 
   parseSignonRequest(body: Buffer): SignonRequest | undefined {
-    this.logger.log(`Signon request body (${body.length} bytes): ${body.toString('hex')}`);
-
     if (body.length === 0) {
-      this.logger.warn('Signon request has empty body');
-      return undefined;
+      this.logger.warn("Signon request has empty body");
+      return;
     }
 
     try {
@@ -35,9 +35,9 @@ export class SignonService {
       return request;
     } catch (error) {
       this.logger.error(
-        `Failed to decode SignonRequest: ${error instanceof Error ? error.message : String(error)}`,
+        `Failed to decode SignonRequest: ${error instanceof Error ? error.message : String(error)}`
       );
-      return undefined;
+      return;
     }
   }
 
@@ -66,7 +66,7 @@ export class SignonService {
 
   // If we need to do this anywhere else, extract out as a helper.
   private ipv4StringToUint32(ip: string): number {
-    const parts = ip.split('.').map((p) => Number(p));
+    const parts = ip.split(".").map((p) => Number(p));
     if (
       parts.length !== 4 ||
       parts.some((n) => !Number.isInteger(n) || n < 0 || n > 255)

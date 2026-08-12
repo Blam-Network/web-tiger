@@ -12,7 +12,7 @@ export function resolveSignonHttpPorts(): number[] {
     return [...SIGNON_HTTP_PORTS_DEFAULT];
   }
   return raw
-    .split(',')
+    .split(",")
     .map((s) => Number(s.trim()))
     .filter((n) => Number.isFinite(n) && n > 0);
 }

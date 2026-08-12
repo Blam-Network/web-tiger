@@ -13,13 +13,13 @@ This package contains Destiny `36735.13.12.02.1953.alpha` web services. It's ava
 2. Create a `.env` file in the project root, following this structure:
     ```env
       BAP_SIGNON_IP=127.0.0.1
-      BAP_SIGNON_PORT=3074
+      BAP_SIGNON_PORT=37000
       # Optional: override sign-on ports (defaults 32000,32001,32004,32005,32008,32009)
       # SIGNON_HTTP_PORTS=32000,32001,32004,32005,32008,32009
       # HOSTNAME=
     ```
 
-## Running the app
+## Running the server
 
 ```bash
 # development
@@ -31,6 +31,9 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+
+When running the server in Dev mode, you can configure the Reports Watcher to print your Destiny logs to the console.
+See `reports_watch.example.json` for an example configuration.
 ---
 
 Last Updated 11/08/26 by Codie 🐧

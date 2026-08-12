@@ -35,10 +35,10 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 .env
+reports_watch.json
 
 /public/storage
 /uploads
 /title_storage
 
 src/generated/prisma/
-.npmrc

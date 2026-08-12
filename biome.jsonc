@@ -1,0 +1,103 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": [
+    "ultracite/biome/core",
+    "ultracite/biome/nestjs",
+    "ultracite/biome/vitest"
+  ],
+  "files": {
+    "includes": [
+      "!dist",
+      "!node_modules",
+      "!src/generated",
+      "!uploads",
+      "!title_storage",
+      "!public/storage"
+    ]
+  },
+  "javascript": {
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    }
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        "useNumericSeparators": "off",
+        "useFilenamingConvention": "off"
+      },
+      "performance": {
+        "noBarrelFile": "off",
+        "noNamespaceImport": "off"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["src/**"],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "noBannedTypes": "off",
+            "noExcessiveCognitiveComplexity": "off"
+          },
+          "suspicious": {
+            "noExplicitAny": "off",
+            "noBitwiseOperators": "off",
+            "noShadowRestrictedNames": "off",
+            "noEmptyBlockStatements": "off",
+            "useAwait": "off"
+          },
+          "style": {
+            "noNamespace": "off",
+            "useUnifiedTypeSignatures": "off",
+            "noNonNullAssertion": "off",
+            "noExportedImports": "off",
+            "useConsistentMemberAccessibility": "off",
+            "useReadonlyClassProperties": "off",
+            "useImportType": "off"
+          },
+          "correctness": {
+            "noUnusedFunctionParameters": "off",
+            "noUnusedPrivateClassMembers": "off"
+          },
+          "performance": {
+            "noBarrelFile": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/**/*.test.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useReadonlyClassProperties": "off"
+          },
+          "performance": {
+            "useTopLevelRegex": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["scripts/**"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUnusedVariables": "off",
+            "noUnusedFunctionParameters": "off"
+          },
+          "performance": {
+            "useTopLevelRegex": "off"
+          },
+          "suspicious": {
+            "noConsole": "off",
+            "noEmptyBlockStatements": "off",
+            "useAwait": "off"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,7 +1,7 @@
-import { spawnSync } from 'node:child_process';
+import { spawnSync } from "node:child_process";
 
-const result = spawnSync('npx', ['buf', 'generate'], {
-  stdio: 'inherit',
+const result = spawnSync("npx", ["buf", "generate"], {
+  stdio: "inherit",
   shell: true,
 });
 

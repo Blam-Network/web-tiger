@@ -21,13 +21,20 @@
     "proto:generate": "buf generate",
     "proto:watch": "node --watch-path=proto --watch-preserve-output ./scripts/proto-generate.mjs",
     "build": "npm run proto:generate && nest build",
+    "check": "ultracite check",
+    "fix": "ultracite fix",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
     "start": "nest start",
-    "start:dev": "npm run proto:generate && concurrently -k -n proto,nest -c magenta,cyan \"npm:proto:watch\" \"nest start --watch\"",
+    "reports:watch": "node --watch --watch-path=./scripts/reports-watch.mjs --watch-path=./reports_watch.json --watch-preserve-output ./scripts/reports-watch.mjs",
+    "start:dev": "npm run proto:generate && concurrently -k -n proto,nest,tiger -c magenta,cyan,yellow \"npm:proto:watch\" \"nest start --watch\" \"npm:reports:watch\"",
     "start:prod": "node dist/main",
-    "lint": "eslint \"{src,test}/**/*.ts\" --fix"
+    "test": "vitest run",
+    "validate": "npm run check && npm run test && npm run typecheck"
   },
   "dependencies": {
+    "@blamnetwork/blf": "^1.1.0-beta.7",
     "@bufbuild/protobuf": "^2.13.0",
+    "@craftycodie/cstruct": "^2.0.0-alpha.3",
     "@nestjs/common": "11.1.0",
     "@nestjs/core": "11.1.0",
     "@nestjs/platform-express": "11.1.0",
@@ -38,6 +45,7 @@
     "rxjs": "^7.8.2"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.4.15",
     "@bufbuild/buf": "^1.72.0",
     "@bufbuild/protoc-gen-es": "^2.13.0",
     "@nestjs/cli": "11.0.7",
@@ -46,7 +54,9 @@
     "@types/node": "^16.11.47",
     "concurrently": "^9.2.4",
     "rimraf": "^3.0.2",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "ultracite": "7.7.0",
+    "vitest": "^3.2.4"
   },
   "overrides": {
     "express": "5.1.0"

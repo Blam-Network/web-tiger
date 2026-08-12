@@ -1,28 +1,46 @@
-import { Injectable, OnApplicationShutdown } from '@nestjs/common';
-import * as http from 'http';
+import type * as http from "node:http";
+import type * as net from "node:net";
+import { Injectable, type OnApplicationShutdown } from "@nestjs/common";
 
 @Injectable()
 export class ShutdownObserver implements OnApplicationShutdown {
-  private httpServers: http.Server[] = [];
+  private readonly httpServers: http.Server[] = [];
+  private readonly tcpServers: net.Server[] = [];
 
   public addHttpServer(server: http.Server): void {
     this.httpServers.push(server);
   }
 
+  public addTcpServer(server: net.Server): void {
+    this.tcpServers.push(server);
+  }
+
   public async onApplicationShutdown(): Promise<void> {
-    await Promise.all(
-      this.httpServers.map(
+    await Promise.all([
+      ...this.httpServers.map(
         (server) =>
-          new Promise((resolve, reject) => {
+          new Promise<void>((resolve, reject) => {
             server.close((error) => {
               if (error) {
                 reject(error);
               } else {
-                resolve(null);
+                resolve();
               }
             });
-          }),
+          })
       ),
-    );
+      ...this.tcpServers.map(
+        (server) =>
+          new Promise<void>((resolve, reject) => {
+            server.close((error) => {
+              if (error) {
+                reject(error);
+              } else {
+                resolve();
+              }
+            });
+          })
+      ),
+    ]);
   }
 }

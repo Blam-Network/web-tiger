@@ -1,5 +1,5 @@
-import { ConsoleLogger } from '@nestjs/common';
-import { ILoggerSymbol } from '../ILogger';
+import { ConsoleLogger } from "@nestjs/common";
+import { ILoggerSymbol } from "../ILogger";
 
 export const loggerWithPrefix = (prefix: string) => ({
   provide: ILoggerSymbol,

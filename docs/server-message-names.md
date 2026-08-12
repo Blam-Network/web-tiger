@@ -1,0 +1,64 @@
+# Server message names
+
+Investment globals SharedDef table (`808E206C`): **56** server messages.
+
+Names cracked via FNV-1 (`basis 0x811C9DC5`, `prime 0x01000193`) against Tiger snake_case vocabulary.
+
+| NID | Name hash | Name |
+|----:|----------:|------|
+| 101 | `0xB0DC1167` | ? |
+| 104 | `0x5A146EAB` | ? |
+| 105 | `0x2DCC40D2` | ? |
+| 201 | `0xAFC44C8F` | fetch_account |
+| 202 | `0x869BAB67` | fetch_character |
+| 203 | `0xD5F72313` | fetch_item |
+| 204 | `0xD913DB61` | fetch_time |
+| 205 | `0xA52AE87F` | fetch_universe |
+| 206 | `0x516F3C62` | fetch_family |
+| 207 | `0x40A3A7CA` | ? |
+| 303 | `0xABBEF2D3` | ? |
+| 304 | `0x3EB709C0` | ? |
+| 401 | `0x80153B8E` | ? |
+| 402 | `0x3931CB8A` | ? |
+| 403 | `0xC579F488` | ? |
+| 404 | `0x9BEFE885` | ? |
+| 501 | `0xE906221F` | ? |
+| 502 | `0xF721133E` | ? |
+| 503 | `0x0C662090` | login_account |
+| 504 | `0x7D6146CC` | login_character |
+| 505 | `0x1CE11BB6` | signout_character |
+| 506 | `0x27B12A16` | customize_character |
+| 601 | `0x3BF631F4` | ? |
+| 701 | `0x54F74CEB` | ? |
+| 702 | `0xFC75EB1B` | ? |
+| 801 | `0xF9D0480F` | ? |
+| 802 | `0x9997CC20` | ? |
+| 803 | `0x0484D2FB` | ? |
+| 901 | `0x4D0EA80C` | ? |
+| 902 | `0x890C0597` | ? |
+| 903 | `0x5610F2E4` | ? |
+| 1101 | `0x74BCE44F` | ? |
+| 1102 | `0xD4C4C1D7` | ? |
+| 1103 | `0xF15CB19C` | ? |
+| 1201 | `0x8C657E37` | ? |
+| 1202 | `0xADD20CB8` | ? |
+| 1203 | `0xB29BF9F2` | ? |
+| 1205 | `0x3B43CE9D` | ? |
+| 1206 | `0x64EF3BEB` | ? |
+| 1207 | `0x7849C31B` | ? |
+| 1208 | `0x7E52AB1F` | ? |
+| 1209 | `0x7EB2B211` | ? |
+| 1210 | `0x9F6B0A8F` | ? |
+| 1211 | `0xB095C2F9` | ? |
+| 1212 | `0xA4FDB1F6` | ? |
+| 1213 | `0x62CF7CFD` | ? |
+| 1214 | `0x0624757C` | ? |
+| 1215 | `0xB0974CAA` | ? |
+| 1216 | `0xF53B73E3` | ? |
+| 1217 | `0xF2DB9698` | ? |
+| 1218 | `0x5D150AA3` | cheat_incident |
+| 1301 | `0xDDDB7B36` | ? |
+| 1302 | `0x4D7EF259` | ? |
+| 1303 | `0x5ED31B0E` | ? |
+| 1304 | `0x1A31E889` | ? |
+| 1401 | `0x33784D64` | update_offers |

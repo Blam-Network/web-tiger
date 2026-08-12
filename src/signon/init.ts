@@ -1,12 +1,13 @@
-import { NestFactory } from '@nestjs/core';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { ExpressAdapter } from '@nestjs/platform-express';
-import express from 'express';
-import * as http from 'http';
-import { SignonModule } from './signon.module';
-import { resolveSignonHttpPorts } from './constants';
-import ILogger, { ILoggerSymbol } from '../ILogger';
-import { ShutdownObserver } from '../ShutdownObserver';
+import * as http from "node:http";
+import { NestFactory } from "@nestjs/core";
+import { ExpressAdapter } from "@nestjs/platform-express";
+import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import express from "express";
+import type ILogger from "../ILogger";
+import { ILoggerSymbol } from "../ILogger";
+import { ShutdownObserver } from "../ShutdownObserver";
+import { resolveSignonHttpPorts } from "./constants";
+import { SignonModule } from "./signon.module";
 
 export async function createSignonServer(opts?: {
   ports?: number[];
@@ -17,20 +18,20 @@ export async function createSignonServer(opts?: {
 
   const server = express();
   // XHTTP GET /signon still carries a protobuf body; keep it as raw bytes.
-  server.use(express.raw({ type: () => true, limit: '1mb' }));
+  server.use(express.raw({ type: () => true, limit: "1mb" }));
 
   const app = await NestFactory.create(
     SignonModule,
     new ExpressAdapter(server),
-    { bodyParser: false },
+    { bodyParser: false }
   );
 
   const config = new DocumentBuilder()
-    .setTitle('BNET - Tiger Sign-on Server')
-    .setVersion('36735.13.12.02.1953.alpha')
+    .setTitle("BNET - Tiger Sign-on Server")
+    .setVersion("36735.13.12.02.1953.alpha")
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup("api", app, document);
 
   app.enableCors();
   await app.init();
