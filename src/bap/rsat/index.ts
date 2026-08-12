@@ -21,7 +21,7 @@ export {
   buildFetchFamilyResponseBody,
   buildLoginAccountResponseBody,
   buildLoginAccountResponseBodyFromOpts,
+  buildProfileSetCharacterProfileResponseBody,
   buildServerMessage104ResponseBody,
-  buildServerMessage702ResponseBody,
   parseFetchFamilyRequest,
 } from "./mocks/messages";

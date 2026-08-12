@@ -16,6 +16,9 @@ This package contains Destiny `36735.13.12.02.1953.alpha` web services. It's ava
       BAP_SIGNON_PORT=37000
       # Optional: override sign-on ports (defaults 32000,32001,32004,32005,32008,32009)
       # SIGNON_HTTP_PORTS=32000,32001,32004,32005,32008,32009
+      # Optional: Demonware LSG lobby ports (defaults 1020,1011)
+      # DEMONWARE_LOBBY_PORTS=1020,1011
+      # DEMONWARE_LOBBY_PORT=1020
       # HOSTNAME=
     ```
 

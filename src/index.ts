@@ -8,6 +8,14 @@ export {
 } from "./bap";
 export { createTigerServer } from "./create-tiger-server";
 export {
+  createDemonwareServer,
+  DEMONWARE_BIND_HOST,
+  DEMONWARE_LOBBY_PORTS_DEFAULT,
+  DemonwareModule,
+  DemonwareServerService,
+  resolveDemonwareLobbyPorts,
+} from "./demonware";
+export {
   createSignonServer,
   resolveSignonHttpPorts,
   SIGNON_HTTP_PORTS_DEFAULT,

@@ -15,11 +15,11 @@ import {
   buildInspectionBaselineBody,
   buildLoginAccountResponseBody,
   buildPeerBaselineBody,
+  buildProfileSetCharacterProfileResponseBody,
   buildRosterBaselineBody,
   buildSelectCharacterBaselineBody,
   buildSelfBaselineBody,
   buildServerMessage104ResponseBody,
-  buildServerMessage702ResponseBody,
   buildUniverseBaselineBody,
   e_server_message_network_id,
   INSPECTION_CHECKSUM_PRIMARY,
@@ -221,23 +221,24 @@ export class BapSession {
     }
 
     if (
-      networkId === e_server_message_network_id._server_message_network_id_702
+      networkId ===
+      e_server_message_network_id._server_message_network_id_profile_set_character_profile
     ) {
       try {
-        const body = buildServerMessage702ResponseBody();
+        const body = buildProfileSetCharacterProfileResponseBody();
         this.send({
           msgType: BapMessageType.ClientToWorldServerResponse,
           sequence: message.sequence,
           body,
         });
         this.logger.log(
-          `BAP server-message 702 ack (seq ${message.sequence.toString(16)}, ` +
+          `BAP profile_set_character_profile ack (seq ${message.sequence.toString(16)}, ` +
             `body ${body.length}B)`
         );
       } catch (err) {
         const m = err instanceof Error ? err.message : String(err);
         this.logger.warn(
-          `BAP server-message 702 ack FAILED, absorbed to keep connection alive: ${m}`
+          `BAP profile_set_character_profile ack FAILED, absorbed to keep connection alive: ${m}`
         );
       }
       return;

@@ -1,4 +1,5 @@
 import { createBapServer } from "./bap/init";
+import { createDemonwareServer } from "./demonware/init";
 import { createSignonServer } from "./signon/init";
 
 export async function createTigerServer(opts?: {
@@ -6,4 +7,5 @@ export async function createTigerServer(opts?: {
 }): Promise<void> {
   await createSignonServer({ hostname: opts?.hostname });
   await createBapServer({ hostname: opts?.hostname });
+  await createDemonwareServer({ hostname: opts?.hostname });
 }

@@ -41,8 +41,8 @@ export const ServerMessage104Response = rsat.schema(0x80801a52, {
   serverObject: rsat.nested(ServerObject),
 });
 
-/** 80801ABC — server-message response (nid 702). */
-export const ServerMessage702Response = rsat.schema(0x80801abc, {
+/** 80801ABC — profile_set_character_profile response. */
+export const ProfileSetCharacterProfileResponse = rsat.schema(0x80801abc, {
   unknown0: rsat.nested(Unknown80801A2B),
 });
 

@@ -10,8 +10,8 @@ import {
   FetchFamilyRequest,
   FetchFamilyResponse,
   LoginAccountResponse,
+  ProfileSetCharacterProfileResponse,
   ServerMessage104Response,
-  ServerMessage702Response,
 } from "../schemas/messages";
 
 export interface ParsedFetchFamilyRequest {
@@ -103,10 +103,10 @@ export function buildServerMessage104ResponseBody(): Buffer {
   );
 }
 
-export function buildServerMessage702ResponseBody(): Buffer {
+export function buildProfileSetCharacterProfileResponseBody(): Buffer {
   return encodeServerMessage(
-    e_server_message_network_id._server_message_network_id_702,
-    ServerMessage702Response,
+    e_server_message_network_id._server_message_network_id_profile_set_character_profile,
+    ProfileSetCharacterProfileResponse,
     {
       unknown0: { unknown0: 0, unknown1: 0 },
     }
