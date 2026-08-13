@@ -58,6 +58,7 @@
             "useImportType": "off"
           },
           "correctness": {
+            "noGlobalDirnameFilename": "off",
             "noUnusedFunctionParameters": "off",
             "noUnusedPrivateClassMembers": "off"
           },
