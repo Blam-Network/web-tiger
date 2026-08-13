@@ -18,7 +18,7 @@ Names cracked via FNV-1 (`basis 0x811C9DC5`, `prime 0x01000193`) against Tiger s
 | 207 | `0x40A3A7CA` | fetch_account_family_versions |
 | 303 | `0xABBEF2D3` | incident_miss_enemy |
 | 304 | `0x3EB709C0` | activity_host_incident |
-| 401 | `0x80153B8E` | ? |
+| 401 | `0x80153B8E` | inventory_destroy_item |
 | 402 | `0x3931CB8A` | inventory_perform_item_action |
 | 403 | `0xC579F488` | inventory_equip_item |
 | 404 | `0x9BEFE885` | inventory_unequip_item |
