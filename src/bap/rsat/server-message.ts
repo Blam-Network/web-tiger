@@ -3,7 +3,7 @@
  * Cracked names via FNV-1; uncracked members keep the numeric nid suffix.
  */
 export enum e_server_message_network_id {
-  _server_message_network_id_101 = 101,
+  _server_message_network_id_director_get_activity_list = 101,
   _server_message_network_id_director_enter_orbit = 104,
   _server_message_network_id_director_complete_bink_activity = 105,
   _server_message_network_id_fetch_account = 201,
@@ -15,7 +15,7 @@ export enum e_server_message_network_id {
   _server_message_network_id_fetch_account_family_versions = 207,
   _server_message_network_id_incident_miss_enemy = 303,
   _server_message_network_id_activity_host_incident = 304,
-  _server_message_network_id_401 = 401,
+  _server_message_network_id_inventory_destroy_item = 401,
   _server_message_network_id_inventory_perform_item_action = 402,
   _server_message_network_id_inventory_equip_item = 403,
   _server_message_network_id_inventory_unequip_item = 404,

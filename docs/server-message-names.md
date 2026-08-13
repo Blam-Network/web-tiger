@@ -6,7 +6,7 @@ Names cracked via FNV-1 (`basis 0x811C9DC5`, `prime 0x01000193`) against Tiger s
 
 | NID | Name hash | Name |
 |----:|----------:|------|
-| 101 | `0xB0DC1167` | ? |
+| 101 | `0xB0DC1167` | director_get_activity_list |
 | 104 | `0x5A146EAB` | director_enter_orbit |
 | 105 | `0x2DCC40D2` | director_complete_bink_activity |
 | 201 | `0xAFC44C8F` | fetch_account |
