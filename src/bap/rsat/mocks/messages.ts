@@ -7,11 +7,11 @@ import {
   UNIVERSE_ROOT_SOID,
 } from "../constants";
 import {
+  DirectorEnterOrbitResponse,
   FetchFamilyRequest,
   FetchFamilyResponse,
   LoginAccountResponse,
   ProfileSetCharacterProfileResponse,
-  ServerMessage104Response,
 } from "../schemas/messages";
 
 export interface ParsedFetchFamilyRequest {
@@ -86,10 +86,10 @@ export function buildFetchFamilyResponseBody(
   );
 }
 
-export function buildServerMessage104ResponseBody(): Buffer {
+export function buildDirectorEnterOrbitResponseBody(): Buffer {
   return encodeServerMessage(
-    e_server_message_network_id._server_message_network_id_104,
-    ServerMessage104Response,
+    e_server_message_network_id._server_message_network_id_director_enter_orbit,
+    DirectorEnterOrbitResponse,
     {
       unknown0: { unknown0: 0, unknown1: 0 },
       serverObject: {

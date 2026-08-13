@@ -35,8 +35,8 @@ export const FetchFamilyResponse = rsat.schema(0x80801a8e, {
   unknown0: rsat.i32({ size: 3, bias: 1 }),
 });
 
-/** 80801A52 — server-message response (nid 104). */
-export const ServerMessage104Response = rsat.schema(0x80801a52, {
+/** 80801A52 — director_enter_orbit response. */
+export const DirectorEnterOrbitResponse = rsat.schema(0x80801a52, {
   unknown0: rsat.nested(Unknown80801A2B),
   serverObject: rsat.nested(ServerObject),
 });

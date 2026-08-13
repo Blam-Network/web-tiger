@@ -11,6 +11,7 @@ import { BAP_SESSION_KEY_AES, BAP_SESSION_KEY_HMAC } from "./config";
 import { BapMessageType, bapMessageTypeName } from "./constants";
 import { e_queuez_family_type } from "./queuez";
 import {
+  buildDirectorEnterOrbitResponseBody,
   buildFetchFamilyResponseBody,
   buildInspectionBaselineBody,
   buildLoginAccountResponseBody,
@@ -19,7 +20,6 @@ import {
   buildRosterBaselineBody,
   buildSelectCharacterBaselineBody,
   buildSelfBaselineBody,
-  buildServerMessage104ResponseBody,
   buildUniverseBaselineBody,
   e_server_message_network_id,
   INSPECTION_CHECKSUM_PRIMARY,
@@ -198,23 +198,24 @@ export class BapSession {
     }
 
     if (
-      networkId === e_server_message_network_id._server_message_network_id_104
+      networkId ===
+      e_server_message_network_id._server_message_network_id_director_enter_orbit
     ) {
       try {
-        const body = buildServerMessage104ResponseBody();
+        const body = buildDirectorEnterOrbitResponseBody();
         this.send({
           msgType: BapMessageType.ClientToWorldServerResponse,
           sequence: message.sequence,
           body,
         });
         this.logger.log(
-          `BAP server-message 104 ack (seq ${message.sequence.toString(16)}, ` +
+          `BAP director_enter_orbit ack (seq ${message.sequence.toString(16)}, ` +
             `body ${body.length}B)`
         );
       } catch (err) {
         const m = err instanceof Error ? err.message : String(err);
         this.logger.warn(
-          `BAP server-message 104 ack FAILED, absorbed to keep connection alive: ${m}`
+          `BAP director_enter_orbit ack FAILED, absorbed to keep connection alive: ${m}`
         );
       }
       return;

@@ -18,10 +18,10 @@ export {
 } from "./mocks/families";
 export type { ParsedFetchFamilyRequest } from "./mocks/messages";
 export {
+  buildDirectorEnterOrbitResponseBody,
   buildFetchFamilyResponseBody,
   buildLoginAccountResponseBody,
   buildLoginAccountResponseBodyFromOpts,
   buildProfileSetCharacterProfileResponseBody,
-  buildServerMessage104ResponseBody,
   parseFetchFamilyRequest,
 } from "./mocks/messages";
