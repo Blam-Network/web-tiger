@@ -37,6 +37,7 @@ lerna-debug.log*
 .env
 reports_watch.json
 
+/datamine
 /public/storage
 /uploads
 /title_storage

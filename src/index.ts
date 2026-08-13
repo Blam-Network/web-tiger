@@ -8,6 +8,15 @@ export {
 } from "./bap";
 export { createTigerServer } from "./create-tiger-server";
 export {
+  createDatamineServer,
+  DATAMINE_DIR,
+  DATAMINE_HTTP_PORTS_DEFAULT,
+  DatamineController,
+  DatamineModule,
+  DatamineService,
+  resolveDatamineHttpPorts,
+} from "./datamine";
+export {
   createDemonwareServer,
   DEMONWARE_BIND_HOST,
   DEMONWARE_LOBBY_PORTS_DEFAULT,
