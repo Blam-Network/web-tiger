@@ -92,6 +92,7 @@
             "useTopLevelRegex": "off"
           },
           "suspicious": {
+            "noBitwiseOperators": "off",
             "noConsole": "off",
             "noEmptyBlockStatements": "off",
             "useAwait": "off"

@@ -17,6 +17,9 @@ import { DATAMINE_DIR } from "../constants";
 import { BnetPrismaToken, type PrismaService } from "../prisma.service";
 
 const DATAMINE_ZIP_ENTRY = "compressed.dat";
+const MULTIPART_BOUNDARY_RE = /^--([^\r\n]+)/;
+const MULTIPART_UPLOAD_NAME_RE = /name="upload"/i;
+const FILENAME_FORBIDDEN = new Set('<>:"/\\|?*');
 
 /** Windows FILETIME (100ns since 1601-01-01) → Date. */
 const FILETIME_EPOCH_DIFF_MS = 11_644_473_600_000n;
@@ -59,7 +62,11 @@ function headerTitle(header: s_data_mine_header): string {
     return header.title;
   }
 
-  if ("application_name" in header && header.application_name && header.application_name.startsWith("tiger_")) {
+  if (
+    "application_name" in header &&
+    header.application_name &&
+    header.application_name.startsWith("tiger_")
+  ) {
     return "tiger";
   }
   return "unknown";
@@ -79,11 +86,16 @@ function resolveSessionStartDate(datamine: s_datamine_file): Date {
       earliest = event.header.event_date;
     }
   }
-  return earliest !== undefined ? fileTimeToDate(earliest) : fileTimeToDate(0n);
+  return earliest === undefined ? fileTimeToDate(0n) : fileTimeToDate(earliest);
 }
 
 function sanitizeFilename(value: string): string {
-  return value.replace(/[<>:"/\\|?*\u0000-\u001f]/g, "_").slice(0, 180);
+  let out = "";
+  for (const ch of value) {
+    const code = ch.codePointAt(0) ?? 0;
+    out += code < 32 || FILENAME_FORBIDDEN.has(ch) ? "_" : ch;
+  }
+  return out.slice(0, 180);
 }
 
 function truncate(value: string, max: number): string {
@@ -139,7 +151,7 @@ function convertParameterType(
 
 function extractMultipartFile(body: Buffer): Buffer | undefined {
   const asAscii = body.toString("latin1");
-  const boundaryMatch = asAscii.match(/^--([^\r\n]+)/);
+  const boundaryMatch = asAscii.match(MULTIPART_BOUNDARY_RE);
   if (!boundaryMatch) {
     // Raw zip / compressed.dat (tests / manual drops)
     if (body.length >= 2 && body[0] === 0x50 && body[1] === 0x4b) {
@@ -148,13 +160,13 @@ function extractMultipartFile(body: Buffer): Buffer | undefined {
     if (body.length >= 2 && body[0] === 0xff && body[1] === 0xfe) {
       return body;
     }
-    return undefined;
+    return;
   }
 
   const boundary = boundaryMatch[1];
   const parts = asAscii.split(`--${boundary}`);
   for (const part of parts) {
-    if (!/name="upload"/i.test(part)) {
+    if (!MULTIPART_UPLOAD_NAME_RE.test(part)) {
       continue;
     }
     const sep = part.indexOf("\r\n\r\n");
@@ -167,7 +179,7 @@ function extractMultipartFile(body: Buffer): Buffer | undefined {
     }
     return Buffer.from(payload, "latin1");
   }
-  return undefined;
+  return;
 }
 
 function openZipEntry(buffer: Buffer, fileName: string): Promise<Buffer> {
@@ -211,7 +223,7 @@ async function parseTicketDropBody(
 ): Promise<s_datamine_file | undefined> {
   const upload = extractMultipartFile(body);
   if (!upload) {
-    return undefined;
+    return;
   }
 
   // Multipart usually wraps a ZIP; compressed.dat may also arrive bare.
@@ -222,7 +234,7 @@ async function parseTicketDropBody(
     try {
       datamineBuf = await openZipEntry(upload, DATAMINE_ZIP_ENTRY);
     } catch {
-      return undefined;
+      return;
     }
   }
 
@@ -249,11 +261,7 @@ export class DatamineService {
     let path: string | undefined;
     try {
       const datamine = await parseTicketDropBody(body);
-      if (!datamine) {
-        this.logger.warn(
-          `${method} /ticket_drop parse failed (${body.length}B)${host}`
-        );
-      } else {
+      if (datamine) {
         events = datamine.events.length;
         if (this.prisma) {
           await this.pushToDatabase(datamine);
@@ -262,6 +270,10 @@ export class DatamineService {
         }
         this.logger.log(
           `Datamine upload received for session ${datamine.header.sessionid} (${events} events)`
+        );
+      } else {
+        this.logger.warn(
+          `${method} /ticket_drop parse failed (${body.length}B)${host}`
         );
       }
     } catch (error) {
@@ -382,7 +394,9 @@ export class DatamineService {
                   string_value: stringValue,
                 };
               })
-              .filter((param): param is NonNullable<typeof param> => param !== null)
+              .filter(
+                (param): param is NonNullable<typeof param> => param !== null
+              )
           );
 
           if (allParameters.length > 0) {

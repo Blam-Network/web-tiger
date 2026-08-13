@@ -6,8 +6,8 @@ import { config as loadDotenv } from "dotenv";
 export function loadWebTigerEnv(): void {
   const candidates = [
     join(process.cwd(), ".env"),
-    join(__dirname, "..", ".env"),
-    join(__dirname, "..", "..", ".env"),
+    join(import.meta.dirname, "..", ".env"),
+    join(import.meta.dirname, "..", "..", ".env"),
   ];
   for (const path of candidates) {
     if (existsSync(path)) {

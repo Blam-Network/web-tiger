@@ -30,7 +30,8 @@
     "start:dev": "npm run prisma:generate && npm run proto:generate && concurrently -k -n proto,nest,tiger -c magenta,cyan,yellow \"npm:proto:watch\" \"nest start --watch\" \"npm:reports:watch\"",
     "start:prod": "node dist/main",
     "test": "vitest run",
-    "validate": "npm run check && npm run test && npm run typecheck"
+    "validate": "npm run check && npm run test && npm run typecheck",
+    "prepare": "husky"
   },
   "dependencies": {
     "@blamnetwork/blf": "^1.1.0-beta.10",
@@ -58,6 +59,8 @@
     "@types/express": "^4.17.13",
     "@types/node": "^16.11.47",
     "concurrently": "^9.2.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.3.0",
     "prisma": "^6.7.0",
     "rimraf": "^3.0.2",
     "typescript": "5.8.3",
@@ -66,5 +69,8 @@
   },
   "overrides": {
     "express": "5.1.0"
+  },
+  "lint-staged": {
+    "*.{ts,js,mjs,cjs,json,jsonc}": "ultracite check"
   }
 }
