@@ -2,10 +2,14 @@
 export enum BapMessageType {
   ClientToActivityHostManagerRequest = 0x6,
   ClientToActivityHostManagerResponse = 0x7,
+  ClientToActivityHostNotification = 0x8,
+  BapToClientActivityNotification = 0x9,
   ClientToWorldServerRequest = 0xa,
   ClientToWorldServerResponse = 0xb,
   ClientToBapSubscriptionRequest = 0xc,
   ClientToBapSubscriptionResponse = 0xd,
+  ClientToBapGetActivityHostProxyRequest = 0x10,
+  ClientToBapGetActivityHostProxyResponse = 0x11,
   ClientToBapClientConfigRequest = 0x12,
   ClientToBapClientConfigResponse = 0x13,
   ClientToBapAccountIdTranslationPlatformToInvestmentRequest = 0x17,
@@ -14,6 +18,7 @@ export enum BapMessageType {
   ClientToBapSecureHelloResponse = 0x1a,
   ClientToBapChannelStartupRequest = 0x1e,
   ClientToBapChannelStartupResponse = 0x1f,
+  ActivityHostToClientNotification = 0x64,
   ClientToBapQueuezRegisterRequest = 0x79,
   ClientToBapQueuezRegisterResponse = 0x7a,
   QueuezToClientUpdateNotification = 0x7b,
@@ -30,6 +35,10 @@ export function bapMessageTypeName(type: number): string {
       return "client_to_activity_host_manager_request";
     case BapMessageType.ClientToActivityHostManagerResponse:
       return "client_to_activity_host_manager_response";
+    case BapMessageType.ClientToActivityHostNotification:
+      return "client_to_activity_host_notification";
+    case BapMessageType.BapToClientActivityNotification:
+      return "bap_to_client_activity_notification";
     case BapMessageType.ClientToWorldServerRequest:
       return "client_to_world_server_request";
     case BapMessageType.ClientToWorldServerResponse:
@@ -38,6 +47,10 @@ export function bapMessageTypeName(type: number): string {
       return "client_to_bap_subscription_request";
     case BapMessageType.ClientToBapSubscriptionResponse:
       return "client_to_bap_subscription_response";
+    case BapMessageType.ClientToBapGetActivityHostProxyRequest:
+      return "client_to_bap_get_activity_host_proxy_request";
+    case BapMessageType.ClientToBapGetActivityHostProxyResponse:
+      return "client_to_bap_get_activity_host_proxy_response";
     case BapMessageType.ClientToBapClientConfigRequest:
       return "client_to_bap_client_config_request";
     case BapMessageType.ClientToBapClientConfigResponse:
@@ -54,6 +67,8 @@ export function bapMessageTypeName(type: number): string {
       return "client_to_bap_channel_startup_request";
     case BapMessageType.ClientToBapChannelStartupResponse:
       return "client_to_bap_channel_startup_response";
+    case BapMessageType.ActivityHostToClientNotification:
+      return "activity_host_to_client_notification";
     case BapMessageType.ClientToBapQueuezRegisterRequest:
       return "client_to_bap_queuez_register_request";
     case BapMessageType.ClientToBapQueuezRegisterResponse:
