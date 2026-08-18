@@ -88,8 +88,6 @@
 
 (<boolean> editor_mode)
 
-(<void> map_info)
-
 (<int16> random_range_array <int16> <int16>)
 
 (<real> real_random_range_inclusive <real> <real>)
@@ -268,8 +266,6 @@
 
 (<void> game_revert)
 
-(<void> game_award_level_complete_achievements)
-
 (<boolean> game_is_cooperative)
 
 (<boolean> game_is_playtest)
@@ -318,8 +314,6 @@
 
 (<void> input_mouse_enabled <boolean>)
 
-(<void> net_enable_e3)
-
 (<void> events_enabled <boolean>)
 
 (<void> events_suppress_display <boolean>)
@@ -352,8 +346,6 @@
 
 (<void> events_category_datamine <string> <event>)
 
-(<void> play_credits_skip_to_menu)
-
 (<int32> bink_time)
 
 (<void> datamine_set_mission_segment <string>)
@@ -369,8 +361,6 @@
 (<void> datamine_flush)
 
 (<void> datamine_debug_menu_setting <string>)
-
-(<void> datamine_open_debug_menu)
 
 (<void> crash_report_enable <boolean>)
 
@@ -428,15 +418,9 @@
 
 (<void> game_safe_to_respawn <boolean> <player>)
 
-(<void> stop_bink_movie)
-
-(<void> play_credits_unskippable)
-
 (<int32> simulation_profiler_detail_level <int32>)
 
 (<void> net_log_channel_message_queue_state <int32> <boolean>)
-
-(<void> player_set_profile <starting_profile> <player>)
 
 (<void> designer_mode <boolean>)
 
@@ -463,22 +447,6 @@
 (<void> slice_set_transition <string>)
 
 (<void> phase_transition <string>)
-
-(<void> telemetry_start)
-
-(<void> telemetry_hdd <boolean>)
-
-(<void> telemetry_end)
-
-(<void> telemetry_enable_team_zones <int32> <boolean>)
-
-(<void> telemetry_disable_lock_profiling)
-
-(<void> telemetry_enable_lock_profiling)
-
-(<void> telemetry_enable_context_switch_profiling)
-
-(<void> telemetry_disable_context_switch_profiling)
 
 (<void> tiger_increment_seconds_per_game_day <real>)
 
@@ -567,10 +535,6 @@
 (<void> activity_client_set_replay_capture_size_for_fah_startup <string>)
 
 (<void> activity_client_set_replay_capture_size_for_gah_startup <string>)
-
-(<void> activity_option_set_integer <string> <int32>)
-
-(<void> activity_option_set_real <string> <real>)
 
 (<void> toggle_render_feature <int32> <boolean>)
 
