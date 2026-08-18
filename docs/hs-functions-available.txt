@@ -56,13 +56,9 @@
 
 (<void> branch <condition> <script>)
 
-(<void> evaluate <script>)
-
 (<boolean> not <boolean>)
 
 (<real> pin <real> <real> <real>)
-
-(<void> print <string>)
 
 (<void> log_print <string>)
 
@@ -70,11 +66,7 @@
 
 (<void> debug_scripting_globals <boolean>)
 
-(<void> debug_scripting_variable <string> <boolean>)
-
 (<void> debug_scripting_variable_all <boolean>)
-
-(<void> breakpoint <string>)
 
 (<void> kill_active_scripts)
 
@@ -254,8 +246,6 @@
 
 (<void> world_reset)
 
-(<void> job_set_graph_output_directory <string>)
-
 (<void> register_package <string>)
 
 (<void> register_package_set <string>)
@@ -267,8 +257,6 @@
 (<void> dump_full_memory_in_bugs_enable <boolean>)
 
 (<void> crash <string>)
-
-(<void> workbench_add <string>)
 
 (<void> add_startup_globals <string>)
 
@@ -320,8 +308,6 @@
 
 (<boolean> player_has_skills)
 
-(<void> player_has_mad_secret_skills <int32>)
-
 (<void> player_invert_look <player>)
 
 (<int32> user_interface_controller_get_last_level_played <int16>)
@@ -365,10 +351,6 @@
 (<void> events_category_debugger_break <string> <event>)
 
 (<void> events_category_datamine <string> <event>)
-
-(<void> play_bink_movie <string>)
-
-(<void> play_bink_movie_from_tag <bink_definition>)
 
 (<void> play_credits_skip_to_menu)
 
@@ -426,10 +408,6 @@
 
 (<void> mp_scripts_reset)
 
-(<void> predict_bink_movie <string>)
-
-(<void> predict_bink_movie_from_tag <bink_definition>)
-
 (<int32> game_coop_player_count)
 
 (<int32> game_tick_get)
@@ -457,8 +435,6 @@
 (<int32> simulation_profiler_detail_level <int32>)
 
 (<void> net_log_channel_message_queue_state <int32> <boolean>)
-
-(<void> player_set_profile <starting_profile>)
 
 (<void> player_set_profile <starting_profile> <player>)
 
@@ -488,19 +464,13 @@
 
 (<void> phase_transition <string>)
 
-(<void> telemetry_ip <string>)
-
 (<void> telemetry_start)
 
 (<void> telemetry_hdd <boolean>)
 
 (<void> telemetry_end)
 
-(<void> telemetry_level <int32>)
-
 (<void> telemetry_enable_team_zones <int32> <boolean>)
-
-(<void> telemetry_enable_team_zones_by_name <string> <boolean>)
 
 (<void> telemetry_disable_lock_profiling)
 
@@ -550,8 +520,6 @@
 
 (<void> net_set_signon_server_url <string>)
 
-(<void> net_create_hosts_entry <string> <string>)
-
 (<void> net_sos_skip_user_actions)
 
 (<void> content_build_string <string>)
@@ -559,8 +527,6 @@
 (<boolean> in_debugger)
 
 (<void> hide_loot <boolean>)
-
-(<void> bubble_transition_test <string> <string>)
 
 (<void> owc_end_game)
 
@@ -594,8 +560,6 @@
 
 (<void> activity_host_set_suspiciously_inactive_timeout <int32>)
 
-(<void> activity_client_test_disconnection <string> <string>)
-
 (<void> activity_client_set_replay_filename_for_fah_startup <string>)
 
 (<void> activity_client_set_replay_filename_for_gah_startup <string>)
@@ -606,11 +570,7 @@
 
 (<void> activity_option_set_integer <string> <int32>)
 
-(<void> activity_option_set_bool <string> <boolean>)
-
 (<void> activity_option_set_real <string> <real>)
-
-(<void> activity_option_set_string <string> <string>)
 
 (<void> toggle_render_feature <int32> <boolean>)
 
