@@ -54,7 +54,7 @@ Names cracked via FNV-1 (`basis 0x811C9DC5`, `prime 0x01000193`) against Tiger s
 | 1213 | `0x62CF7CFD` | cheat_character_replace_equipped_item |
 | 1214 | `0x0624757C` | cheat_activity_complete |
 | 1215 | `0xB0974CAA` | cheat_character_reset |
-| 1216 | `0xF53B73E3` | ? |
+| 1216 | `0xF53B73E3` | cheat_character_set_incident_accumulator |
 | 1217 | `0xF2DB9698` | cheat_set_clan_name |
 | 1218 | `0x5D150AA3` | cheat_incident |
 | 1301 | `0xDDDB7B36` | activity_host_start_activity |
