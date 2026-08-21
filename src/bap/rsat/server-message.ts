@@ -1,6 +1,6 @@
 /**
  * Investment SharedDef server-message network-ids (`808E206C`, 56 rows).
- * Cracked names via FNV-1; uncracked members keep the numeric nid suffix.
+ * Cracked names via FNV-1.
  */
 export enum e_server_message_network_id {
   _server_message_network_id_director_get_activity_list = 101,
@@ -51,7 +51,7 @@ export enum e_server_message_network_id {
   _server_message_network_id_cheat_character_replace_equipped_item = 1213,
   _server_message_network_id_cheat_activity_complete = 1214,
   _server_message_network_id_cheat_character_reset = 1215,
-  _server_message_network_id_1216 = 1216,
+  _server_message_network_id_cheat_character_set_incident_accumulator = 1216,
   _server_message_network_id_cheat_set_clan_name = 1217,
   _server_message_network_id_cheat_incident = 1218,
   _server_message_network_id_activity_host_start_activity = 1301,
